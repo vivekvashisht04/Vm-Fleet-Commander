@@ -93,3 +93,16 @@ Then I used these commands to validate my Bicep files before deploying, catching
 az deployment group validate --resource-group vmFleetRG --template-file main.bicep --parameters @dev.parameters.json
 az deployment group validate --resource-group vmFleetRG --template-file main.bicep --parameters @test.parameters.json
 az deployment group validate --resource-group vmFleetRG --template-file main.bicep --parameters @prod.parameters.json
+
+Skills Demonstrated
+Infrastructure as Code (IaC): Proficiency in using ARM templates and Bicep to define, deploy, and manage Azure resources. Ability to convert ARM templates to Bicep, showcasing knowledge in both tools.
+Azure Resource Management: Experience in creating and managing Azure resources, including VMs, virtual networks, network security groups, and public IPs. Skill in parameterizing deployments for flexibility and scalability across different environments (development, testing, production).
+Automation: Capability to automate resource provisioning and configuration using Bicep and Azure CLI. Implementation of loops and parameterized inputs to streamline and simplify complex deployments.
+Version Control: Utilization of Git for version control to track changes and manage the project's codebase effectively.
+Deployment and Validation: Competence in deploying resources to Azure using Azure CLI commands. Thorough validation of deployment templates to ensure error-free infrastructure setup.
+Maintenance and Updates: Experience in updating deployed resources and maintaining infrastructure state. Regularly pulling updates for tools like Azure CLI and Bicep to leverage the latest features and improvements.
+Cost Management: Awareness of resource management and cost control by ensuring the deletion of unused resources post-testing.
+Repository Contents
+Manual: A detailed manual documenting each step of the project, including configurations, testing procedures, and troubleshooting tips.
+Screenshots: Visual documentation of key stages and configurations throughout the project, providing a visual guide and reference.
+Source Code: All the source code used in this project, including the Bicep templates and parameter files, organized in the Source_Code folder.
