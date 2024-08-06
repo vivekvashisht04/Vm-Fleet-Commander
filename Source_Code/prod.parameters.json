@@ -1,0 +1,25 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "vmSize": {
+        "value": "Standard_DS2_v2"
+      },
+      "vmNamePrefix": {
+        "value": "vmFleetProd"
+      },
+      "location": {
+        "value": "Canada Central"
+      },
+      "adminUsername": {
+        "value": "prod.user"
+      },
+      "adminPassword": {
+        "value": "P@ssw0rd1234"
+      },
+      "vmCount": {
+        "value": 5
+      }
+    }
+  }
+  
