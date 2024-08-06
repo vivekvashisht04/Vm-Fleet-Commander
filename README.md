@@ -2,7 +2,9 @@
 
 ## Project Workflow
 
-![Project Workflow Design Complete](https://github.com/user-attachments/assets/932ab172-d8a5-4cf0-8061-87fb64c0ab6d)
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/932ab172-d8a5-4cf0-8061-87fb64c0ab6d" alt="Project Workflow Design Complete">
+</div>
 ![Project Workflow Design (i)](https://github.com/user-attachments/assets/54991c6d-c521-4ea7-bbe4-19cf96e65976)
 ![Project Workflow Design (ii)](https://github.com/user-attachments/assets/1b3f086b-6c50-4887-9a3c-8d2d0b4f6fa3)
 ![Project Workflow Design (iii)](https://github.com/user-attachments/assets/cbd9f528-1192-4530-a7a5-91418bd2fd9f)
