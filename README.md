@@ -56,7 +56,40 @@ Before starting this project, ensure you have the following:
      az login
      ```
 
-Maintenance & Updates
-I made some changes in my dev.parameters.json file, changing the VM size from "Standard_DS1_v2" to "Standard_B1s".
+### Bicep Basics
+I already had experience working with Bicep and ARM Templates when I was studying for my AZ-104 Exam. For revision, I used the official Bicep Documentation and AI for support in case of any doubt.
 
-Then I redeployed using this command:
+#### ARM Template to Bicep Conversion
+I used a basic ARM template: `vm-template.json`
+
+Then I used the command `az bicep decompile --file vm-template.json` in the Azure CLI to convert it to Bicep: `vm-template.bicep`
+
+### Resource Group
+I defined a Bicep file named `resource-group.bicep` to create an Azure Resource Group for the VMs.
+
+### Virtual Machine Provisioning
+I created a Bicep module in a Bicep file named `vm.bicep` for deploying Azure VMs, allowing for parameterized input like VM size, name, and region. I used loops in Bicep to deploy multiple VM instances based on a specified count and implemented naming conventions for my resources using Bicep's string functions.
+
+Then I made a Bicep file named `main.bicep`, in which I defined parameters for customizable input values for the deployment, such as VM size, name prefix, location, admin credentials, and VM count, and referenced the `vm.bicep` module.
+
+### Network Resources
+I designed a Bicep module named `network.bicep` for associated networking resources like Virtual Network, Subnet, Network Interface Card, Public IP, and Network Security Groups.
+
+Then I updated the `vm.bicep`.
+
+Then I updated the `main.bicep` so that it references the Network Resources Module also.
+
+By doing this, I ensured that the VMs will be provisioned within the designated VNet, NIC, Public IP, and have the necessary security rules applied.
+
+### Parameter Files and Validation
+I created separate parameter files for my Bicep templates, allowing for different environment deployments (dev, test, prod).
+
+- `dev.parameters.json`
+- `test.parameters.json`
+- `prod.parameters.json`
+
+Then I used these commands to validate my Bicep files before deploying, catching any structural errors:
+```bash
+az deployment group validate --resource-group vmFleetRG --template-file main.bicep --parameters @dev.parameters.json
+az deployment group validate --resource-group vmFleetRG --template-file main.bicep --parameters @test.parameters.json
+az deployment group validate --resource-group vmFleetRG --template-file main.bicep --parameters @prod.parameters.json
