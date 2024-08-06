@@ -75,14 +75,26 @@ I used a basic ARM template: `vm-template.json`
 Then I used the command `az bicep decompile --file vm-template.json` in the Azure CLI to convert it to Bicep: `vm-template.bicep`
 
 ## Resource Group
+
+![Resource Group](https://github.com/user-attachments/assets/c39045e2-907c-40f1-8230-c5600b85ecee)
+
+
 I defined a Bicep file named `resource-group.bicep` to create an Azure Resource Group for the VMs.
 
 ## Virtual Machine Provisioning
+
+![Vm Bicep](https://github.com/user-attachments/assets/b845aa12-959d-4781-996f-2be24e5ccaff)
+
+
 I created a Bicep module in a Bicep file named `vm.bicep` for deploying Azure VMs, allowing for parameterized input like VM size, name, and region. I used loops in Bicep to deploy multiple VM instances based on a specified count and implemented naming conventions for my resources using Bicep's string functions.
 
 Then I made a Bicep file named `main.bicep`, in which I defined parameters for customizable input values for the deployment, such as VM size, name prefix, location, admin credentials, and VM count, and referenced the `vm.bicep` module.
 
 ## Network Resources
+
+![Network Bicep (i)](https://github.com/user-attachments/assets/78c87227-66d5-47df-b142-88bcd899b4b4)
+
+
 I designed a Bicep module named `network.bicep` for associated networking resources like Virtual Network, Subnet, Network Interface Card, Public IP, and Network Security Groups.
 
 Then I updated the `vm.bicep` so that it has Network Profile Section in it.
@@ -107,6 +119,15 @@ az deployment group validate --resource-group vmFleetRG --template-file main.bic
 ```
 
 ## Deployment
+
+![Dev Deployment (iv)](https://github.com/user-attachments/assets/3d7696fb-d73e-4c86-878a-f90dfc1deff6)
+
+![Dev Deployment (viii)](https://github.com/user-attachments/assets/96a3bbc1-110b-471f-a046-3672678b0a26)
+
+![Dev Deployment (xi)](https://github.com/user-attachments/assets/1f6849d6-38b0-4cdf-8c2f-50120fc0ad8a)
+
+![Dev Deployment (xii)](https://github.com/user-attachments/assets/aba747ed-fbb1-41a9-8c86-53cada9ac078)
+
 
 I used the Azure CLI to deploy the Bicep templates, creating all designated resources.
 
@@ -147,6 +168,10 @@ az deployment group create --resource-group vmFleetProd --template-file main.bic
 By doing this, I tested the reproducibility by deploying the infrastructure into different environments and to different regions and resource groups. Every deployment went well and was successful.
 
 ## Maintenance & Updates
+
+![Redeployment After Changes (ii)](https://github.com/user-attachments/assets/cacf6ae4-0d3c-4d14-8f5f-f5f24ef89d65)
+
+
 I made some changes in my dev.parameters.json file, changing the VM size from "Standard_DS1_v2" to "Standard_B1s".
 
 Then I redeployed using this command:
@@ -156,6 +181,12 @@ az deployment group create --resource-group vmFleetRG --template-file main.bicep
 ```
 
 After the deployment, I checked the Azure portal and confirmed that the VM sizes were changed from "Standard_DS1_v2" to "Standard_B1s" for all the virtual machines.
+
+![Updates (i)](https://github.com/user-attachments/assets/645dc3a5-f644-48f5-9299-2c1d9f5e2c53)
+
+![Updates (ii)](https://github.com/user-attachments/assets/0a595fc2-1305-4951-b99f-340bc8a5d717)
+
+
 
 To ensure I stay updated with new features and improvements, I regularly pull updates to the Bicep language and Azure CLI using these commands:
 
