@@ -85,7 +85,7 @@ Then I made a Bicep file named `main.bicep`, in which I defined parameters for c
 ## Network Resources
 I designed a Bicep module named `network.bicep` for associated networking resources like Virtual Network, Subnet, Network Interface Card, Public IP, and Network Security Groups.
 
-Then I updated the `vm.bicep`.
+Then I updated the `vm.bicep` so that it has Network Profile Section in it.
 
 Then I updated the `main.bicep` so that it references the Network Resources Module also.
 
